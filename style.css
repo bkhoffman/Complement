@@ -5,10 +5,18 @@ body.modal-open .supreme-container{
   -ms-filter: blur(1px);
   filter: blur(1px);
 }
+.supreme-container{
+  margin: 0 5%;
+}
 
 .jumbotron{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: bold;
   text-align: center;
 }
 .display-4 .display-tag{
+  text-align: center;
+}
+#drink-card{
   text-align: center;
 }

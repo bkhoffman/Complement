@@ -22,11 +22,12 @@
   <div class="supreme-container">
     <div class="row">
       <div class="col-lg-6">
-        <div class="card">
+        <div class="card" style="width: 100%;">
+          <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
           <h5 class="card-header">Food</h5>
           <div class="card-body">
             <h5 class="card-title">What's in your pantry?</h5>
-            <p class="card-text">Add your ingredients</p>
+            <p class="card-text">Add your ingredients:</p>
             <input type="name" class="form-control" id="inputIngredients" placeholder="Chicken">
             <br>
             <a href="#" class="btn btn-primary">Find Recipes</a>
@@ -37,7 +38,7 @@
       <div class="col-lg-6">
         <div class="card" style="width: 100%;">
           <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
-          <div class="card-body">
+          <div class="card-body" id="drink-card">
             <h5 class="card-title">Drink</h5>
             <p class="card-text">What type of beer do you feel like drinking?</p>
             <div class="dropdown">
@@ -56,20 +57,34 @@
         </div>
       </div>
     </div>
-
+    <br>
     <div class="row">
       <div class="col-lg-6">
-          <div class="card bg-dark text-black">
-              <img src="./images/food_main_image.png" class="card-img" alt="food image">
-              <div class="card-img-overlay">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text">Last updated 3 mins ago</p>
-              </div>
-            </div>
+        <div class="card bg-dark text-black">
+          <img src="./images/food_main_image.png" class="card-img" alt="food image">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Food</h5>
+            <p class="card-text">What's in your pantry?</p>
+            <p class="card-text">Add your ingredients:</p>
+            <input type="name" class="form-control" id="inputIngredients" placeholder="Chicken">
+            <br>
+            <a href="#" class="btn btn-primary">Find Recipes</a>
+          </div>
+        </div>
       </div>
 
-      <div class="col-lg-6"></div>
+      <div class="col-lg-6"> 
+        <div class="card" style="width: 100%;">
+          <h5 class="card-header">Food</h5>
+          <div class="card-body">
+            <h5 class="card-title">What's in your pantry?</h5>
+            <p class="card-text">Add your ingredients:</p>
+            <input type="name" class="form-control" id="inputIngredients" placeholder="Chicken">
+            <br>
+            <a href="#" class="btn btn-primary">Find Recipes</a>
+          </div>
+        </div>     
+      </div>
     </div>
   </div>
   
