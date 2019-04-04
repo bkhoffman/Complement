@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Complement</title>
+</head>
+
+<body>
+  <header></header>
+  <div class="jumbotron">
+    <h1 class="display-4">Complement</h1>
+    <h4 class="display-tag">Create Your Perfect Meal</h4>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <h5 class="card-header">Food</h5>
+          <div class="card-body">
+            <h5 class="card-title">What's in your pantry?</h5>
+            <p class="card-text">Add your ingredients</p>
+            <input type="name" class="form-control" id="inputIngredients" placeholder="Chicken">
+            <br>
+            <a href="#" class="btn btn-primary">Find Recipes</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card" style="width: 100%;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Drink</h5>
+            <p class="card-text">What type of beer do you feel like drinking?</p>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Beer Type
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">IPA</button>
+                <button class="dropdown-item" type="button">Lager</button>
+                <button class="dropdown-item" type="button">Porter</button>
+              </div>
+            </div>
+            <br>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
