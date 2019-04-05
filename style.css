@@ -20,3 +20,7 @@ body.modal-open .supreme-container{
 #drink-card{
   text-align: center;
 }
+
+.recipeCard{
+  width: 200px;
+}
