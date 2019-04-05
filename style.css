@@ -4,6 +4,7 @@ body.modal-open .supreme-container{
   -o-filter: blur(1px);
   -ms-filter: blur(1px);
   filter: blur(1px);
+  
 }
 .supreme-container{
   margin: 0 5%;
@@ -19,4 +20,8 @@ body.modal-open .supreme-container{
 }
 #drink-card{
   text-align: center;
+}
+
+.recipeCard{
+  width: 200px;
 }
