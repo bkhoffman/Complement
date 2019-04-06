@@ -1,17 +1,32 @@
+// Hold all script until page loads
+$(document).ready(function () {
 
-$("#recipeSearch").click(function(event){
-    event.preventDefault();
-    var string = $("#inputIngredients").val().trim();
-    var firstWord = string.substring(0, string.indexOf(" "));
-    console.log(firstWord);
-    var searchString = string.replace(" ", ",");
-    console.log("click");
-    edamamCall(searchString);
-    $("#inputIngredients").val("");
-});
+    $("#recipeSearch").click(function (event) {
+        event.preventDefault();
+        var string = $("#inputIngredients").val().trim();
+        console.log(string);
+        if (string === "") {
+            validateInput();
+            return false;
+        }
+        else {
+            if (string.includes(" ")) {
+                var firstWord = string.substring(0, string.indexOf(" "));
+            }
+            else {
+                var firstWord = string;
+            }
+            console.log(firstWord);
+            var searchString = string.replace(" ", ",");
+            console.log("click");
+            edamamCall(searchString);
+            $("#inputIngredients").val("");
+            beerSelection(firstWord);
+            console.log(firstWord);
+        });
 
-function edamamCall(searchString) {
-        var queryURL = "https://api.edamam.com/search?q="+searchString +"&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
+    function edamamCall(searchString) {
+        var queryURL = "https://api.edamam.com/search?q=" + searchString + "&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
 
         $.ajax({
             url: queryURL,
@@ -19,7 +34,7 @@ function edamamCall(searchString) {
         }).then(function (response) {
             console.log(response);
             var recipeArray = response.hits;
-            for(var i=0; i<recipeArray.length; i++){
+            for (var i = 0; i < recipeArray.length; i++) {
                 var card = $("<div>");
                 card.addClass("card recipeCard");
                 card.attr("data-label", `${recipeArray[i].recipe.label}`);
@@ -33,7 +48,7 @@ function edamamCall(searchString) {
 
                 var cardBody = $("<div>").addClass("card-body");
                 cardBody.html(`<img src="${recipeArray[i].recipe.image}" class="img-fluid mx-auto d-block">`);
-                
+
                 card.append(cardHeader, cardBody);
                 $("#results").append(card);
             }
@@ -48,6 +63,53 @@ function edamamCall(searchString) {
         });
     }
 
-    $(".recipeCard").click(function(){
-        
+    $(".recipeCard").click(function () {
+
     });
+
+    function beerSelection(firstWord) {
+        var beerQueryURL = "https://api.punkapi.com/v2/beers/?food=" + firstWord;
+
+        $.ajax({
+            url: beerQueryURL,
+            method: "GET"
+        })
+            .then(function (response) {
+                for (var i = 0; i < 6; i++) {
+                    console.log(response);
+                    var name = response[i].name;
+                    var image = response[i].image_url;
+                    var abv = response[i].abv;
+
+                    var beerDiv = $("<div>");
+                    beerDiv
+                        .addClass("beer-choice");
+
+                    var beerImg = $("<img>");
+                    beerImg
+                        .addClass("beer-image")
+                        .attr("src", image);
+                    var title = $("<p>");
+                    title
+                        .addClass("beer-name")
+                        .text(name);
+                    var percent = $("<p>");
+                    percent
+                        .addClass("beer-abv")
+                        .text(abv + "%");
+
+                    beerDiv
+                        .append(beerImg)
+                        .append(title)
+                        .append(percent);
+
+                    $("#beer-results").append(beerDiv);
+                }
+            })
+    }
+
+    function validateInput() {
+        var text = "Please enter an ingredient";
+        document.getElementById("valAlert").innerHTML = text
+    }
+});
