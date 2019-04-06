@@ -37,8 +37,9 @@
           <div class="card-body">
             <h5 class="card-title text-center">Food</h5>
             <p class="card-text">What's in your pantry?</p>
-            <p class="card-text">Add your ingredients:</p>
-            <input type="name" class="form-control" id="inputIngredients" placeholder="Ingredients go here">
+            <p class="card-text">Add your ingredients, main ingredient first:</p>
+            <input type="text" name="ingInput" onsubmit="return validateInput()" class="form-control" id="inputIngredients" placeholder="Ex. chicken tomato pasta">
+            <p id="valAlert"></p>
             <br>
             <button id="recipeSearch" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Find
               Recipes</button>
@@ -73,23 +74,24 @@
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                aria-hidden="true">×</span></button>
+          <div class="modal-header">            
             <h4 class="modal-title" id="myModalLabel">Your Perfect Pairings</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">×</span></button>
           </div>
-          <div class="row">
           <div class="modal-body">
-            <div class="col-sm-6">
-              <h3>Recipes</h3>
-              <div id="results" class="d-flex flex-wrap justify-content-around"></div>
-              <!--current recipe results-->
-            </div>
-            <div class="col-sm-6">
-              <h3>Beer Types</h3>
+            <div class="row">            
+              <div class="col-md-6">
+                <h3>Recipes</h3>
+                <div id="results" class="d-flex flex-wrap justify-content-around"></div>
+              </div>
+                <!--current recipe results-->
+              <div class="col-md-6">
+                <h3>Beer Types</h3>
+                <div id="beer-results" class="d-flex flex-wrap justify-content-around"></div>
+              </div>
             </div>
           </div>
-        </div>
           <!-- <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       <button type="button" class="btn btn-primary">Save changes</button>
