@@ -25,3 +25,19 @@ body.modal-open .supreme-container{
 .recipeCard{
   width: 200px;
 }
+.modal-title{
+  text-align: center;
+}
+
+.close{
+  float: right;
+}
+
+/* @media (min-width: 576px){
+.modal-dialog {
+    width: 850px !important;
+  }
+}
+.modal-container{
+  width: 950px;
+} */
