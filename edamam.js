@@ -126,4 +126,25 @@ $(document).ready(function () {
         var text = "Please enter an ingredient";
         document.getElementById("valAlert").innerHTML = text
     }
+    
+    $("#inputIngredients").on("click", function(){
+        var text = "";
+        document.getElementById("valAlert").innerHTML = text
+    })
+
+    $(".dropdown-item").on("click", function () {
+        var beerValue = $(this).text();
+        console.log(this);
+        console.log(beerValue);
+    });
+
+    function beerType(beerValue) {
+        var beerTypeQuery = "https://api.punkapi.com/v2/beers/?beer_name=" + beerValue;
+
+        $.ajax({
+            url: beerQueryURL,
+            method: "GET"
+        })
+    }
+
 });
