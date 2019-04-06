@@ -13,59 +13,62 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Complement</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Complement</title>
 </head>
 
 <body>
-  <header></header>
-  <div class="jumbotron">
-    <h1 class="display-4">Complement</h1>
-    <h4 class="display-tag">Create Your Perfect Meal</h4>
-  </div>
-  <div class="supreme-container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card" style="width: 100%">
-          <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
-          <div class="card-body">
-            <h5 class="card-title text-center">Food</h5>
-            <p class="card-text">What's in your pantry?</p>
-            <p class="card-text">Add your ingredients, main ingredient first:</p>
-            <input type="text" name="ingInput" onsubmit="return validateInput()" class="form-control" id="inputIngredients" placeholder="Ex. chicken tomato pasta">
-            <p id="valAlert"></p>
-            <br>
-            <button id="recipeSearch" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Find
-              Recipes</button>
-            <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">See Modal</button> -->
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card" style="width: 100%;">
-          <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
-          <div class="card-body" id="drink-card">
-            <h5 class="card-title">Drink</h5>
-            <p class="card-text">What type of beer do you feel like drinking?</p>
-            <div class="btn-group dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Beer Type
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">IPA</button>
-                <button class="dropdown-item" type="button">Lager</button>
-                <button class="dropdown-item" type="button">Porter</button>
-              </div>
+    <header></header>
+    <div class="jumbotron">
+        <h1 class="display-4">Complement</h1>
+        <h4 class="display-tag">Create Your Perfect Meal</h4>
+    </div>
+    <div class="supreme-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card" style="width: 100%">
+                    <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Food</h5>
+                        <p class="card-text">What's in your pantry?</p>
+                        <p class="card-text">Add your ingredients:</p>
+                        <input type="name" class="form-control" id="inputIngredients" placeholder="Ingredients go here">
+                        <br>
+                        <button id="recipeSearch" class="btn btn-primary">Find Recipes</button>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="col-lg-6">
+                <div class="card" style="width: 100%;">
+                    <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
+                    <div class="card-body" id="drink-card">
+                        <h5 class="card-title">Drink</h5>
+                        <p class="card-text">What type of beer do you feel like drinking?</p>
+                        <div class="btn-group dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Beer Type
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">IPA</button>
+                                <button class="dropdown-item" type="button">Lager</button>
+                                <button class="dropdown-item" type="button">Porter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="results" class="d-flex flex-wrap justify-content-around"></div>
+            </div>
         </div>
       </div>
     </div>
@@ -102,6 +105,7 @@
         </div>
       </div>
     </div>
+    <script src="edamam.js"></script>
 
   </div>
   </div>

@@ -58,3 +58,7 @@ h3 {
 .modal-container{
   width: 950px;
 } */
+.recipeCard{
+  width: 200px;
+  cursor: pointer;
+}
