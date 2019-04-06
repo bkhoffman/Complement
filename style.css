@@ -25,6 +25,7 @@ body.modal-open .supreme-container{
   text-align: center;
 }
 
+<<<<<<< HEAD
 h3 {
   text-align: center;
   margin-bottom: 30px;
@@ -58,3 +59,9 @@ h3 {
 .modal-container{
   width: 950px;
 } */
+=======
+.recipeCard{
+  width: 200px;
+  cursor: pointer;
+}
+>>>>>>> dev
