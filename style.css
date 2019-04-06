@@ -62,7 +62,7 @@ h3 {
 }
 
 .modalCard{
-  height: 340px;
+  min-height: 340px;
 }
 
 .recipeCard{

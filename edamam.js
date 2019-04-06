@@ -28,7 +28,7 @@ $(document).ready(function () {
                 card.addClass("card recipeCard");
                 card.attr("data-label", `${recipeArray[i].recipe.label}`);
                 card.attr("data-url", `${recipeArray[i].recipe.url}`);
-                card.attr("data-ingredients", `${recipeArray[i].recipe.ingredientLines}`);
+                card.attr("data-ingredients", JSON.stringify(recipeArray[i].recipe.ingredientLines));
                 card.attr("data-source", `${recipeArray[i].recipe.source}`);
                 card.attr("data-imageUrl", `${recipeArray[i].recipe.image}`);
 
@@ -64,8 +64,8 @@ $(document).ready(function () {
         var cardLink = `Recipe: <a href="${$(this).attr('data-url')}" target="_blank">${$(this).attr('data-source')}</a>`
         $("#recipeTitle").html($(this).attr("data-label"));
         $("#recipeBody").append(cardImg, cardLink);
-        var str = $(this).attr("data-ingredients");
-        var array = str.split(',');
+        var JSONstr = $(this).attr("data-ingredients");
+        var array = JSON.parse(JSONstr);
         $.each(array, function (index, value) {
             $("#recipeIngredients").append("<li>" + value + "</li>");
         });
