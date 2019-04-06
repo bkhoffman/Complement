@@ -23,4 +23,5 @@ body.modal-open .supreme-container{
 
 .recipeCard{
   width: 200px;
+  cursor: pointer;
 }
