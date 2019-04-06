@@ -7,12 +7,12 @@
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <div class="card">
+                <div class="card mainCard">
                     <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
                     <div class="card-body">
                         <h5 class="card-title text-center">Food</h5>
@@ -46,9 +46,9 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="card">
+                <div class="card mainCard">
                     <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
-                    <div class="card-body" id="drink-card">
+                    <div class="card-body">
                         <h5 class="card-title">Drink</h5>
                         <p class="card-text">What type of beer do you feel like drinking?</p>
                         <div class="btn-group dropdown">
@@ -67,8 +67,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
-                <div id="results" class="d-flex flex-wrap justify-content-around"></div>
+            <div class="col-12">
+                <div class="card resultsCard">
+                    <div class="card-body">
+                        <div id="results" class="d-flex flex-wrap justify-content-center"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +80,7 @@
 
 
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Your Perfect Pairings</h4>
@@ -89,7 +93,7 @@
                         <div class="col-sm-4">
                             <h3 class="modal-title">Recipe</h3>
                             <div id="recipeChoice">
-                                <div class="card">
+                                <div class="card modalCard">
                                     <div class="card-header text-center" id="recipeTitle">
                                     </div>
                                     <div class="card-body" id="recipeBody">
@@ -98,9 +102,9 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                                <h3 class="modal-title">Ingredients</h3>
-                                <ul class="text-center" id="recipeIngredients"></ul>
-                            </div>
+                            <h3 class="modal-title">Ingredients</h3>
+                            <ul id="recipeIngredients" class="scroll"></ul>
+                        </div>
                         <div class="col-sm-4">
                             <h3 class="modal-title">Beer Types</h3>
                             <div id="beer-results"></div>

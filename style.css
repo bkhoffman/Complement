@@ -1,9 +1,9 @@
 body.modal-open .container-fluid{
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);  
 }
 
 .container-fluid{
@@ -30,8 +30,19 @@ h3 {
   margin-bottom: 30px;
 }
 
+.mainCard{
+  min-height: 560px;
+  margin: 10px 10px;
+}
+
+.resultsCard{
+  margin: 10px;
+  display: none;
+}
+
 .recipeCard{
-  width: 200px;
+  min-width: 250px;
+  margin: 5px;
 }
 
 .beer-image {
@@ -50,15 +61,20 @@ h3 {
   float: right;
 }
 
-/* @media (min-width: 576px){
-.modal-dialog {
-    width: 850px !important;
-  }
+.modalCard{
+  height: 340px;
 }
-.modal-container{
-  width: 950px;
-} */
+
 .recipeCard{
   width: 200px;
   cursor: pointer;
+}
+
+li{
+  cursor: pointer;
+}
+
+.scroll {
+  max-height: 340px;
+  overflow-y: auto;
 }
