@@ -16,14 +16,15 @@ $(document).ready(function () {
             else {
                 var firstWord = string;
             }
-            console.log(firstWord);
-            var searchString = string.replace(" ", ",");
-            console.log("click");
-            edamamCall(searchString);
-            $("#inputIngredients").val("");
-            beerSelection(firstWord);
-            console.log(firstWord);
-        });
+        }
+        console.log(firstWord);
+        var searchString = string.replace(" ", ",");
+        console.log("click");
+        edamamCall(searchString);
+        $("#inputIngredients").val("");
+        beerSelection(firstWord);
+        console.log(firstWord);
+    });
 
     function edamamCall(searchString) {
         var queryURL = "https://api.edamam.com/search?q=" + searchString + "&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
@@ -111,5 +112,23 @@ $(document).ready(function () {
     function validateInput() {
         var text = "Please enter an ingredient";
         document.getElementById("valAlert").innerHTML = text
+    }
+
+    $(".dropdown-item").on("click", function () {
+        var beerValue = $(this).text();
+        console.log(this);
+        console.log(beerValue);
+    });
+
+    function beerType(beerValue) {
+        var beerTypeQuery = "https://api.punkapi.com/v2/beers/?beer_name=" + beerValue;
+
+        $.ajax({
+            url: beerQueryURL,
+            method: "GET"
+        })
+            .then(function (response) {
+                for(var i = 0; i < )
+            })
     }
 });
