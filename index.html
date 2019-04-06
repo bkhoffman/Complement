@@ -2,89 +2,77 @@
 <html lang="en-us">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <!-- <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script> -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-
-  <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title>Complement</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Complement</title>
 </head>
 
 <body>
-  <header></header>
-  <div class="jumbotron">
-    <h1 class="display-4">Complement</h1>
-    <h4 class="display-tag">Create Your Perfect Meal</h4>
-  </div>
-
-  <div class="supreme-container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card" style="width: 100%">
-          <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
-          <div class="card-body">
-            <h5 class="card-title">Food</h5>
-            <p class="card-text">What's in your pantry?</p>
-            <p class="card-text">Add your ingredients:</p>
-            <input type="hidden" name="count" value="1" />
-            <div class="control-group" id="fields">
-              <div class="controls" id="profs">
-                <form class="input-append">
-                  <div id="field"><input autocomplete="off" class="input" id="field1" name="prof1" type="text"
-                      placeholder="Type something" data-items="8" /><button id="b1" class="btn add-more"
-                      type="button">+</button></div>
-                </form>
-                <small>Press + to add another form field :)</small>
-              </div>
-            </div>
-            <a href="#" class="btn btn-primary">Find Recipes</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="card" style="width: 100%;">
-          <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
-          <div class="card-body" id="drink-card">
-            <h5 class="card-title">Drink</h5>
-            <p class="card-text">What type of beer do you feel like drinking?</p>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Beer Type
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">IPA</button>
-                <button class="dropdown-item" type="button">Lager</button>
-                <button class="dropdown-item" type="button">Porter</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-lg-6"></div>
-
-        <div class="col-lg-6"></div>
-      </div>
+    <header></header>
+    <div class="jumbotron">
+        <h1 class="display-4">Complement</h1>
+        <h4 class="display-tag">Create Your Perfect Meal</h4>
     </div>
+    <div class="supreme-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card" style="width: 100%">
+                    <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Food</h5>
+                        <p class="card-text">What's in your pantry?</p>
+                        <p class="card-text">Add your ingredients:</p>
+                        <input type="name" class="form-control" id="inputIngredients" placeholder="Ingredients go here">
+                        <br>
+                        <button id="recipeSearch" class="btn btn-primary">Find Recipes</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card" style="width: 100%;">
+                    <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
+                    <div class="card-body" id="drink-card">
+                        <h5 class="card-title">Drink</h5>
+                        <p class="card-text">What type of beer do you feel like drinking?</p>
+                        <div class="btn-group dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Beer Type
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">IPA</button>
+                                <button class="dropdown-item" type="button">Lager</button>
+                                <button class="dropdown-item" type="button">Porter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="results" class="d-flex flex-wrap justify-content-around"></div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="edamam.js"></script>
 
 </body>
