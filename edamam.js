@@ -61,7 +61,7 @@ $(document).ready(function () {
 
 
         var cardImg = `<img src="${$(this).attr('data-imageUrl')}" class="img-fluid mx-auto d-block"></img>`
-        var cardLink = `Recipe: <a href="${$(this).attr('data-url')}" target="_blank">${$(this).attr('data-source')}</a>`
+        var cardLink = `Recipe Location: <a href="${$(this).attr('data-url')}" target="_blank">${$(this).attr('data-source')}</a>`
         $("#recipeTitle").html($(this).attr("data-label"));
         $("#recipeBody").append(cardImg, cardLink);
         var JSONstr = $(this).attr("data-ingredients");
