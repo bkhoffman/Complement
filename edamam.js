@@ -136,15 +136,43 @@ $(document).ready(function () {
         var beerValue = $(this).text();
         console.log(this);
         console.log(beerValue);
+        beerType(beerValue);
+        $(".resultsCard").css("display", "block");
     });
 
     function beerType(beerValue) {
+        $("#results").empty();
         var beerTypeQuery = "https://api.punkapi.com/v2/beers/?beer_name=" + beerValue;
 
         $.ajax({
-            url: beerQueryURL,
+            url: beerTypeQuery,
             method: "GET"
         })
+            .then(function(response) {
+                for (var i = 0; i < 7; i++) {
+                    console.log(response);
+                    var food = response[i].food_pairing[0];
+                    console.log(food);
+                    var card = $("<div>");
+                    card
+                        .addClass("card recipeCard")
+                        .attr("data-label", response[i].name)
+                        .attr("data-image", response[i].image_url)
+                        .attr("data-abv", response[i].abv)
+                        .attr("data-food", food);
+
+                    var cardHeader = $("<div>").addClass("card-header");
+                    cardHeader.text(response[i].name);
+
+                    var cardBody = $("<div>").addClass("card-body");
+                    cardBody.html(`<img src="${response[i].image_url}" class="img-fluid mx-auto d-block">`);
+
+                    card.append(cardHeader, cardBody);
+                    $("#results").append(card);
+                }
+            })
     }
+
+ 
 
 });
