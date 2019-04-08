@@ -10,7 +10,9 @@ $(document).ready(function () {
         }
         var searchString = string.replace(" ", ",");
         edamamCall(searchString);
-        $(".resultsCard").css("display","block");
+        $(".hidden").css("display", "block");
+        $('.collapse').collapse("toggle");
+        $("#swapDisplay").text("Ingredient and Beer Search");
         $("#inputIngredients").val("");
     });
 
@@ -72,11 +74,11 @@ $(document).ready(function () {
         $("#myModal").modal("show");
     });
 
-    $(document).on("click", "li", function(){
-        if($(this).css("text-decoration") === "line-through solid rgb(33, 37, 41)"){
+    $(document).on("click", "li", function () {
+        if ($(this).css("text-decoration") === "line-through solid rgb(33, 37, 41)") {
             $(this).css("text-decoration", "none");
         }
-        else{
+        else {
             $(this).css("text-decoration", "line-through");
         }
     });
@@ -126,8 +128,8 @@ $(document).ready(function () {
         var text = "Please enter an ingredient";
         document.getElementById("valAlert").innerHTML = text
     }
-    
-    $("#inputIngredients").on("click", function(){
+
+    $("#inputIngredients").on("click", function () {
         var text = "";
         document.getElementById("valAlert").innerHTML = text
     })
@@ -146,5 +148,13 @@ $(document).ready(function () {
             method: "GET"
         })
     }
+
+    $("#swapDisplay").on("click", function(){
+        console.log("clicked");
+        if ($(this).text() == "Ingredient and Beer Search") {
+            $(this).text("Show Search Results");
+        }
+        else $(this).text("Ingredient and Beer Search");
+    });
 
 });

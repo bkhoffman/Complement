@@ -38,7 +38,10 @@ h3 {
 
 .resultsCard{
   margin: 10px;
-  display: none;
+}
+
+.hidden{
+  display: none
 }
 
 .recipeCard{
