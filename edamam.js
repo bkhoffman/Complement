@@ -154,9 +154,8 @@ $(document).ready(function () {
         document.getElementById("valAlert").innerHTML = text
     })
 
-    $(".dropdown-item").on("click", function () {
+    $(".beerType").on("click", function () {
         var beerValue = $(this).text();
-        console.log(this);
         console.log(beerValue);
     });
 
@@ -170,7 +169,6 @@ $(document).ready(function () {
     }
 
     $("#swapDisplay").on("click", function () {
-        console.log("clicked");
         if ($(this).text() == "Ingredient and Beer Search") {
             $(this).text("Show Search Results");
         }
@@ -178,3 +176,4 @@ $(document).ready(function () {
     });
 
 });
+
