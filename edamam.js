@@ -4,15 +4,20 @@ $(document).ready(function () {
     $("#recipeSearch").click(function (event) {
         event.preventDefault();
         var string = $("#inputIngredients").val().trim();
+        var RegExpression = /^[a-zA-Z\s]*$/;
+        if (!RegExpression.test(string)) {
+            var text = "Not a valid input, only letters and spaces allowed";
+            document.getElementById("valAlert").innerHTML = text
+            $("#inputIngredients").val("");
+            return false;
+        }
         if (string === "") {
             validateInput();
             return false;
         }
         var searchString = string.replace(" ", ",");
         edamamCall(searchString);
-        $(".hidden").css("display", "block");
-        $('.collapse').collapse("toggle");
-        $("#swapDisplay").text("Ingredient and Beer Search");
+
         $("#inputIngredients").val("");
     });
 
@@ -25,23 +30,32 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             var recipeArray = response.hits;
-            for (var i = 0; i < recipeArray.length; i++) {
-                var card = $("<div>");
-                card.addClass("card recipeCard");
-                card.attr("data-label", `${recipeArray[i].recipe.label}`);
-                card.attr("data-url", `${recipeArray[i].recipe.url}`);
-                card.attr("data-ingredients", JSON.stringify(recipeArray[i].recipe.ingredientLines));
-                card.attr("data-source", `${recipeArray[i].recipe.source}`);
-                card.attr("data-imageUrl", `${recipeArray[i].recipe.image}`);
+            if (recipeArray.length === 0) {
+                $("#noResultModal").modal("show");
+                $(".hidden").css("display", "none");
+            }
+            else {
+                $(".hidden").css("display", "block");
+                $('.collapse').collapse("toggle");
+                $("#swapDisplay").text("Ingredient and Beer Search");
+                for (var i = 0; i < recipeArray.length; i++) {
+                    var card = $("<div>");
+                    card.addClass("card recipeCard");
+                    card.attr("data-label", `${recipeArray[i].recipe.label}`);
+                    card.attr("data-url", `${recipeArray[i].recipe.url}`);
+                    card.attr("data-ingredients", JSON.stringify(recipeArray[i].recipe.ingredientLines));
+                    card.attr("data-source", `${recipeArray[i].recipe.source}`);
+                    card.attr("data-imageUrl", `${recipeArray[i].recipe.image}`);
 
-                var cardHeader = $("<div>").addClass("card-header");
-                cardHeader.text(recipeArray[i].recipe.label);
+                    var cardHeader = $("<div>").addClass("card-header");
+                    cardHeader.text(recipeArray[i].recipe.label);
 
-                var cardBody = $("<div>").addClass("card-body");
-                cardBody.html(`<img src="${recipeArray[i].recipe.image}" class="img-fluid mx-auto d-block">`);
+                    var cardBody = $("<div>").addClass("card-body");
+                    cardBody.html(`<img src="${recipeArray[i].recipe.image}" class="img-fluid mx-auto d-block">`);
 
-                card.append(cardHeader, cardBody);
-                $("#results").append(card);
+                    card.append(cardHeader, cardBody);
+                    $("#results").append(card);
+                }
             }
         });
     }
@@ -86,7 +100,6 @@ $(document).ready(function () {
 
     function beerSelection(firstWord) {
         var beerQueryURL = "https://api.punkapi.com/v2/beers/?food=" + firstWord;
-
         $.ajax({
             url: beerQueryURL,
             method: "GET"
@@ -106,8 +119,15 @@ $(document).ready(function () {
                 else {
                     for (var i = 0; i < 1; i++) {
                         var name = response[i].name;
-                        var image = response[i].image_url;
+                        var image;
+                        if (response[i].image_url === null) {
+                            image = "./images/noBeerImage.jpg"
+                        }
+                        else {
+                            image = response[i].image_url;
+                        }
                         var abv = response[i].abv;
+
 
                         var card = $("<div>").addClass("card modalCard");
                         var cardHeader = $("<div>").addClass("card-header text-center");
@@ -149,7 +169,7 @@ $(document).ready(function () {
         })
     }
 
-    $("#swapDisplay").on("click", function(){
+    $("#swapDisplay").on("click", function () {
         console.log("clicked");
         if ($(this).text() == "Ingredient and Beer Search") {
             $(this).text("Show Search Results");
