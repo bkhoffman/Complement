@@ -26,51 +26,76 @@
     <div class="container-fluid">
         <div class="jumbotron">
             <h1 class="display-4">Complement</h1>
-            <h4 class="display-tag">Create Your Perfect Meal</h4>
+            <h4>Create Your Perfect Meal</h4>
         </div>
-        <div class="row">
+        <button class="btn btn-primary hidden mx-auto mt-2 mb-1" id="swapDisplay" type="button" data-toggle="collapse"
+            data-target=".collapse" aria-expanded="true"
+            aria-controls="multiCollapseExample1 multiCollapseExample2">Ingredient and Beer Search</button>
+        <div class="row collapse show">
             <div class="col-lg-6">
                 <div class="card mainCard">
                     <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
                     <div class="card-body">
                         <h5 class="card-title text-center">Food</h5>
                         <p class="card-text">What's in your pantry?</p>
-                        <p class="card-text">Add your ingredients, main ingredient first:</p>
-                        <input type="text" name="ingInput" onsubmit="return validateInput()" class="form-control"
-                            id="inputIngredients" placeholder="Ex. chicken tomato pasta">
+                        <form>
+                            <div class="form-group">
+                                <label for="inputIngredients">Add your ingredients, main ingredient first:</label>
+                                <input type="text" name="ingInput" onsubmit="return validateInput()"
+                                    class="form-control" id="inputIngredients" placeholder="Ex. chicken tomato pasta">
+                            </div>
+                            <button id="recipeSearch" type="submit" class="btn btn-primary">Find Recipes</button>
+                        </form>
                         <p id="valAlert"></p>
-                        <br>
-                        <button id="recipeSearch" class="btn btn-primary">Find Recipes</button>
                     </div>
                 </div>
             </div>
+            <!-- <div class="col-lg-6">
+                <div class="card mainCard">
+                    <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Drink</h5>
+                        <p class="card-text">What type of beer do you feel like drinking?</p>
+                        <div class="btn-group dropright">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2"
+                                data-toggle="dropdown" aria-haspopup="true" data-flip="false" aria-expanded="false">
+                                Beer Type
+                            </button>
+                            <div class="dropdown-menu" id="drop-beers" aria-labelledby="dropdownMenu2">
+                                <button class="dropdown-item" type="button">Lager</button>
+                                <button class="dropdown-item" type="button">Pale Ale</button>
+                                <button class="dropdown-item" type="button">IPA</button>
+                                <button class="dropdown-item" type="button">Brown Ale</button>
+                                <button class="dropdown-item" type="button">Wheat</button>
+                                <button class="dropdown-item" type="button">Porter</button>
+                                <button class="dropdown-item" type="button">Stout</button>
+                                <button class="dropdown-item" type="button">Sour</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
             <div class="col-lg-6">
                 <div class="card mainCard">
                     <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
                     <div class="card-body">
-                        <h5 class="card-title">Drink</h5>
+                        <h5 class="card-title text-center">Drink</h5>
                         <p class="card-text">What type of beer do you feel like drinking?</p>
-                        <div class="btn-group dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Beer Type
-                            </button>
-                            <div class="dropdown-menu" id="drop-beers" aria-labelledby="dropdownMenu2">
-                                    <button class="dropdown-item" type="button">Lager</button>
-                                    <button class="dropdown-item" type="button">Pale Ale</button>
-                                    <button class="dropdown-item" type="button">IPA</button>
-                                    <button class="dropdown-item" type="button">Brown Ale</button>
-                                    <button class="dropdown-item" type="button">Wheat</button>
-                                    <button class="dropdown-item" type="button">Porter</button>
-                                    <button class="dropdown-item" type="button">Stout</button>
-                                    <button class="dropdown-item" type="button">Sour</button>
-                                  </div>
+                        <div id="beerButtons" class="d-flex flex-wrap justify-content-around">
+                            <button class="btn btn-primary beerType" type="button">Lager</button>
+                            <button class="btn btn-primary beerType" type="button">Pale Ale</button>
+                            <button class="btn btn-primary beerType" type="button">IPA</button>
+                            <button class="btn btn-primary beerType" type="button">Brown Ale</button>
+                            <button class="btn btn-primary beerType" type="button">Wheat</button>
+                            <button class="btn btn-primary beerType" type="button">Porter</button>
+                            <button class="btn btn-primary beerType" type="button">Stout</button>
+                            <button class="btn btn-primary beerType" type="button">Sour</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row collapse">
             <div class="col-12">
                 <div class="card resultsCard">
                     <div class="card-body">
@@ -78,8 +103,8 @@
                     </div>
                 </div>
             </div>
-          </div>
         </div>
+    </div>
     </div>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
@@ -117,5 +142,22 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="noResultModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">No Recipe Results</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>It looks like we weren't able to find any results for your search, please try again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="edamam.js"></script>
 </body>
