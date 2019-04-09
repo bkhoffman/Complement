@@ -6,6 +6,10 @@ body.modal-open .container-fluid{
   filter: blur(5px);  
 }
 
+body{
+  background-image: url("./images/food.png");
+}
+
 .container-fluid{
   padding: 0;
 }
@@ -14,7 +18,7 @@ body.modal-open .container-fluid{
   font-style: bold;
   text-align: center;
   margin-bottom: 5px;
-  padding: 3rem 1rem;
+  padding: 3rem 0.5rem;
 }
 
 .display-4{
@@ -26,12 +30,14 @@ body.modal-open .container-fluid{
 .mainCard{
   min-height: 625px;
   margin: 10px 10px;
+  background-color: rgba(255,255,255,0.5);
 }
 
 .row { margin: 0; padding: 0 }
 
 .resultsCard{
   margin: 10px;
+  background-color: rgba(255,255,255,0.5);
 }
 
 .hidden{
