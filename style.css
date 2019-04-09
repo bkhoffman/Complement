@@ -46,7 +46,13 @@ h3 {
   margin: 5px;
 }
 
-.beer-image {
+.card-header {
+  min-height: 75px;
+  text-align: center;
+}
+
+.beer-image,
+#beer-image {
   height: 200px;
 }
 

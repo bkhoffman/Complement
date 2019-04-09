@@ -132,7 +132,7 @@ $(document).ready(function () {
         document.getElementById("valAlert").innerHTML = text
     })
 
-    $(".dropdown-item").on("click", function () {
+    $(".beerType").on("click", function () {
         var beerValue = $(this).text();
         console.log(this);
         console.log(beerValue);
@@ -149,7 +149,7 @@ $(document).ready(function () {
             method: "GET"
         })
             .then(function(response) {
-                for (var i = 0; i < 7; i++) {
+                for (var i = 0; i < 5; i++) {
                     console.log(response);
                     var food = response[i].food_pairing[0];
                     console.log(food);
@@ -165,7 +165,7 @@ $(document).ready(function () {
                     cardHeader.text(response[i].name);
 
                     var cardBody = $("<div>").addClass("card-body");
-                    cardBody.html(`<img src="${response[i].image_url}" class="img-fluid mx-auto d-block">`);
+                    cardBody.html(`<img src="${response[i].image_url}" class="img-fluid mx-auto d-block" id="beer-image">`);
 
                     card.append(cardHeader, cardBody);
                     $("#results").append(card);
