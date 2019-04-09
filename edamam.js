@@ -1,11 +1,25 @@
 // Hold all script until page loads
 $(document).ready(function () {
+    // jQuery.validator.addMethod("lettersonly", function(value, element) {
+    //     return this.optional(element) || /^[a-z," "]+$/i.test(value);
+    //   }, "Letters only please");
+    $("#inGredients").validate({
+        rules: {
+            ingInput: { 
+                required: true,
+                lettersonly: true }
+        },
+        messages: {
+            ingInput: "Please enter and ingredient"
+        },
+        errorClass: "my-error-class"
+    });
 
     $("#recipeSearch").click(function (event) {
         event.preventDefault();
         var string = $("#inputIngredients").val().trim();
         if (string === "") {
-            validateInput();
+            // validateInput();
             return false;
         }
         var searchString = string.replace(" ", ",");
@@ -122,15 +136,15 @@ $(document).ready(function () {
             })
     }
 
-    function validateInput() {
-        var text = "Please enter an ingredient";
-        document.getElementById("valAlert").innerHTML = text
-    }
+    // function validateInput() {
+    //     var text = "Please enter an ingredient";
+    //     document.getElementById("valAlert").innerHTML = text
+    // }
     
-    $("#inputIngredients").on("click", function(){
-        var text = "";
-        document.getElementById("valAlert").innerHTML = text
-    })
+    // $("#inputIngredients").on("click", function(){
+    //     var text = "";
+    //     document.getElementById("valAlert").innerHTML = text
+    // })
 
     $(".dropdown-item").on("click", function () {
         var beerValue = $(this).text();
