@@ -44,12 +44,19 @@ body{
   display: none
 }
 
-.recipeCard{
-  min-width: 250px;
+.recipeCard, .beerCard{
+  width: 250px;
   margin: 5px;
+  text-align: center
 }
 
-.beer-image {
+.card-header {
+  min-height: 75px;
+  text-align: center;
+}
+
+.beer-image,
+#beer-image {
   height: 200px;
 }
 

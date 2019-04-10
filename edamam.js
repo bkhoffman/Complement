@@ -157,15 +157,54 @@ $(document).ready(function () {
     $(".beerType").on("click", function () {
         var beerValue = $(this).text();
         console.log(beerValue);
+        beerType(beerValue);
+        $(".resultsCard").css("display", "block");
     });
 
     function beerType(beerValue) {
+        $("#results").empty();
         var beerTypeQuery = "https://api.punkapi.com/v2/beers/?beer_name=" + beerValue;
 
         $.ajax({
-            url: beerQueryURL,
+            url: beerTypeQuery,
             method: "GET"
         })
+            .then(function (response) {
+                $(".hidden").css("display", "block");
+                $('.collapse').collapse("toggle");
+                $("#swapDisplay").text("Ingredient and Beer Search");
+                for (var i = 0; i < 5; i++) {
+                    console.log(response);
+                    var food = JSON.stringify(response[i].food_pairing);
+                    console.log(food);
+                    var image;
+                    if (response[i].image_url === null) {
+                        image = "./images/noBeerImage.jpg"
+                    }
+                    else {
+                        image = response[i].image_url;
+                    }
+                    var card = $("<div>");
+                    card
+                        .addClass("card beerCard")
+                        .attr("data-label", response[i].name)
+                        .attr("data-image", image)
+                        .attr("data-abv", response[i].abv)
+                        .attr("data-food", food);
+
+                    var cardHeader = $("<div>").addClass("card-header");
+                    cardHeader.text(response[i].name);
+
+                    var cardBody = $("<div>").addClass("card-body");
+                    var img = `<img src="${image}" class="img-fluid mx-auto d-block beer-image">`;
+                    var abvString = `ABV: ${response[i].abv}`;
+                    cardBody.append(img, abvString)
+                    card.append(cardHeader, cardBody);
+                    $("#beer-results").append(card);
+                    card.append(cardHeader, cardBody);
+                    $("#results").append(card);
+                }
+            })
     }
 
     $("#swapDisplay").on("click", function () {
@@ -175,5 +214,58 @@ $(document).ready(function () {
         else $(this).text("Ingredient and Beer Search");
     });
 
+    $(document).on("click", ".beerCard", function () {
+        $("#recipeBody").empty();
+        $("#recipeTitle").empty();
+        $("#recipeIngredients").empty();
+        $("#beer-results").empty();
+
+        var string = JSON.parse($(this).attr("data-food"));
+        console.log(string);
+        // if (string.includes(" ")) {
+        //     var firstWord = string.substring(0, string.indexOf(" " || "-"));
+        // }
+        // else {
+        //     var firstWord = string;
+        // }
+        recipeSearch(string);
+        var beerCard = $(this).clone();
+        beerCard.removeClass("beerCard");
+        beerCard.addClass("modalCard");
+        $("#beer-results").append(beerCard);
+    });
+
+    function recipeSearch(searchString) {
+        var stringArray = searchString;
+        var queryURL = "https://api.edamam.com/search?q=" + stringArray[0] + "&app_id=84d920a9&app_key=d4d05b6e3b62980f25933ff5b6e370c5";
+        ajaxCall();
+        function ajaxCall() {
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (response) {
+                ;
+                var recipeArray = response.hits;
+                if (recipeArray.length === 0) {
+                    queryURL = "https://api.edamam.com/search?q=" + stringArray[1] + "&app_id=84d920a9&app_key=d4d05b6e3b62980f25933ff5b6e370c5";
+                    ajaxCall();
+                }
+                else {
+                    for (var i = 0; i < 1; i++) {
+                        var cardImg = `<img src="${recipeArray[i].recipe.image}" class="img-fluid mx-auto d-block">`
+                        var cardLink = `Recipe Location: <a href="${recipeArray[i].recipe.url}" target="_blank">${recipeArray[i].recipe.source}</a>`
+                        $("#recipeTitle").html(`${recipeArray[i].recipe.label}`);
+                        $("#recipeBody").append(cardImg, cardLink);
+                        var JSONstr = JSON.stringify(recipeArray[i].recipe.ingredientLines)
+                        var array = JSON.parse(JSONstr);
+                        $.each(array, function (index, value) {
+                            $("#recipeIngredients").append("<li>" + value + "</li>");
+                        });
+                        $("#myModal").modal("show");
+                    }
+                }
+            });
+        }
+    }
 });
 
