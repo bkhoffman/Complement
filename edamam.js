@@ -1,26 +1,26 @@
 // Hold all script until page loads
 $(document).ready(function () {
 
-    //on click functionality for ingedient search button on left side of page
-    $("#recipeSearch").click(function (event) {
-        event.preventDefault();
-        var string = $("#inputIngredients").val().trim();
-        var RegExpression = /^[a-zA-Z\s]*$/;
-        if (!RegExpression.test(string)) {
-            var text = "Not a valid input, only letters and spaces allowed";
-            document.getElementById("valAlert").innerHTML = text
+    //jquery validation library for the recipeSearch button
+    $("#inGredients").validate({
+        submitHandler: function(form) {  
+            console.log(form) 
+            var string = $("#inputIngredients").val().trim();
+            var searchString = string.replace(" ", ",");
+            edamamCall(searchString);
             $("#inputIngredients").val("");
-            return false;
-        }
-        if (string === "") {
-            validateInput();
-            return false;
-        }
-        var searchString = string.replace(" ", ",");
-        edamamCall(searchString);
-
-        $("#inputIngredients").val("");
-    });
+        },	
+        rules: {
+          ingInput: {
+            pattern: /^[A-Za-z," "]+$/,
+            required: true
+          }
+        },
+        messages: {
+          ingInput: "Please input your ingredients using letters only"
+        },
+        errorClass: "my-error-class"
+      });
 
     //edamam API call for recipeSearch and fills in results div
     function edamamCall(searchString) {
@@ -148,17 +148,17 @@ $(document).ready(function () {
             })
     }
 
-    //Pops warning text below recipeSearch on invalid input
-    function validateInput() {
-        var text = "Please enter an ingredient";
-        document.getElementById("valAlert").innerHTML = text
-    }
+    // //Pops warning text below recipeSearch on invalid input
+    // function validateInput() {
+    //     var text = "Please enter an ingredient";
+    //     document.getElementById("valAlert").innerHTML = text
+    // }
 
-    //removes the warning text when you click back into the recipe search box
-    $("#inputIngredients").on("click", function () {
-        var text = "";
-        document.getElementById("valAlert").innerHTML = text
-    })
+    // //removes the warning text when you click back into the recipe search box
+    // $("#inputIngredients").on("click", function () {
+    //     var text = "";
+    //     document.getElementById("valAlert").innerHTML = text
+    // })
 
     //Right side of webpage, on click functionality for beer type buttons
     $(".beerType").on("click", function () {
