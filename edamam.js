@@ -1,36 +1,36 @@
 // Hold all script until page loads
 $(document).ready(function () {
-    // jQuery.validator.addMethod("lettersonly", function(value, element) {
-    //     return this.optional(element) || /^[a-z," "]+$/i.test(value);
-    //   }, "Letters only please");
+
+    jQuery.validator.addMethod("letterswithspace", function(value, element) {
+        return this.optional(element) || /^[a-z][a-z\s]*$/i.test(value);
+    });
+    
     $("#inGredients").validate({
+        submitHandler: function(form) {  
+            console.log(form) 
+            var string = $("#inputIngredients").val().trim();
+            var searchString = string.replace(" ", ",");
+            edamamCall(searchString);
+            $(".resultsCard").css("display","block");
+            $("#inputIngredients").val("");
+        },	
         rules: {
-            ingInput: { 
-                required: true,
-                lettersonly: true }
+          ingInput: {
+            letterswithspace: true,
+            required: true
+          }
         },
         messages: {
-            ingInput: "Please enter and ingredient"
+          ingInput: "Please input your ingredients using letters only"
         },
         errorClass: "my-error-class"
-    });
+      });
 
-    $("#recipeSearch").click(function (event) {
-        event.preventDefault();
-        var string = $("#inputIngredients").val().trim();
-        if (string === "") {
-            // validateInput();
-            return false;
-        }
-        var searchString = string.replace(" ", ",");
-        edamamCall(searchString);
-        $(".resultsCard").css("display","block");
-        $("#inputIngredients").val("");
-    });
+    
 
     function edamamCall(searchString) {
         $("#results").empty();
-        var queryURL = "https://api.edamam.com/search?q=" + searchString + "&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
+        var queryURL = "https://api.edamam.com/search?q=" + searchString + "&app_id=84d920a9&app_key=d4d05b6e3b62980f25933ff5b6e370c5";
 
         $.ajax({
             url: queryURL,
@@ -136,15 +136,6 @@ $(document).ready(function () {
             })
     }
 
-    // function validateInput() {
-    //     var text = "Please enter an ingredient";
-    //     document.getElementById("valAlert").innerHTML = text
-    // }
-    
-    // $("#inputIngredients").on("click", function(){
-    //     var text = "";
-    //     document.getElementById("valAlert").innerHTML = text
-    // })
 
     $(".dropdown-item").on("click", function () {
         var beerValue = $(this).text();
