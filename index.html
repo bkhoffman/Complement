@@ -19,6 +19,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script> <!--validation lib-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script> <!--validation lib-->
     <title>Complement</title>
 </head>
 
@@ -38,14 +40,14 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Food</h5>
                         <p class="card-text">What's in your pantry?</p>
-                        <form>
-                            <div class="form-group">
-                                <label for="inputIngredients">Add your ingredients, main ingredient first:</label>
-                                <input type="text" name="ingInput" onsubmit="return validateInput()"
-                                    class="form-control" id="inputIngredients" placeholder="Ex. chicken tomato pasta">
-                            </div>
-                            <button id="recipeSearch" type="submit" class="btn btn-primary">Find Recipes</button>
-                        </form>
+                            <form id = "inGredients">
+                                <div class="form-group" id = "ingInput">
+                                    <label for="ingInput">Add your ingredients, main ingredient first:
+                                    <input type="text" name="ingInput" class="form-control" id="inputIngredients"  placeholder="Ex. chicken tomato pasta" >
+                                    </label>
+                                </div>
+                                <button id="recipeSearch" type="submit" class="btn btn-primary">Find Recipes</button>
+                            </form>
                         <p id="valAlert"></p>
                     </div>
                 </div>
