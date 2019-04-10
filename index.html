@@ -26,10 +26,34 @@
 
 <body>
     <div class="container-fluid">
-        <div class="jumbotron">
-            <h1 class="display-4">Complement</h1>
-            <h4>Create Your Perfect Meal</h4>
+        <div id="carousel-header" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id="slides">
+                <div class="carousel-item active" data-interval="7000">
+                    <img src="./images/background_image_1.jpg" class="d-block w-100" alt="BG1">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_2.jpg" class="d-block w-100" alt="BG2">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_3.jpg" class="d-block w-100" alt="BG3">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_4.jpg" class="d-block w-100" alt="BG4">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_5.jpg" class="d-block w-100" alt="BG5">
+                </div>
+            </div>
         </div>
+        <div class="main-text hidden-xs">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4">Complement</h1>
+                <h4>Create Your Perfect Meal</h4>
+            </div>
+        </div>
+    </div>
+
+
         <button class="btn btn-primary hidden mx-auto mt-2 mb-1" id="swapDisplay" type="button" data-toggle="collapse"
             data-target=".collapse" aria-expanded="true"
             aria-controls="multiCollapseExample1 multiCollapseExample2">Ingredient and Beer Search</button>

@@ -14,15 +14,18 @@ body{
   padding: 0;
 }
 
-.jumbotron{
-  font-style: bold;
-  text-align: center;
-  margin-bottom: 5px;
-  padding: 3rem 0.5rem;
+#slides {
+  margin-bottom: 20px;
+}
+
+.main-text {
+  position: absolute;
+  top: 40px;
+  width: 100%;
 }
 
 .display-4{
-  font: 5rem 'Berkshire Swash', Helvetica, sans-serif;
+  font: 6rem 'Berkshire Swash', Helvetica, sans-serif;
   color: #2b2b2b;
   text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
@@ -44,6 +47,18 @@ body{
   display: none
 }
 
+.btn-primary {
+  background-color: #99CC99;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-primary:hover {
+  background-color: #99CC33;
+  color: white;
+  border: 1px solid black;
+}
+
 .recipeCard, .beerCard{
   width: 250px;
   margin: 5px;
@@ -54,6 +69,7 @@ body{
 .card-header {
   min-height: 75px;
   text-align: center;
+  background-color: #99CC99;
 }
 
 .beer-image,
