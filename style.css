@@ -38,9 +38,10 @@ body.modal-open .container-fluid{
   display: none
 }
 
-.recipeCard{
-  min-width: 250px;
+.recipeCard, .beerCard{
+  width: 250px;
   margin: 5px;
+  text-align: center
 }
 
 .card-header {
