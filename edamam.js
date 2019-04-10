@@ -1,6 +1,7 @@
 // Hold all script until page loads
 $(document).ready(function () {
 
+    //on click functionality for ingedient search button on left side of page
     $("#recipeSearch").click(function (event) {
         event.preventDefault();
         var string = $("#inputIngredients").val().trim();
@@ -21,6 +22,7 @@ $(document).ready(function () {
         $("#inputIngredients").val("");
     });
 
+    //edamam API call for recipeSearch and fills in results div
     function edamamCall(searchString) {
         $("#results").empty();
         var queryURL = "https://api.edamam.com/search?q=" + searchString + "&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
@@ -60,6 +62,7 @@ $(document).ready(function () {
         });
     }
 
+    //on click functionality for recipeCards to show the modal with ingredients and search the beer api
     $(document).on("click", ".recipeCard", function () {
         $("#recipeBody").empty();
         $("#recipeTitle").empty();
@@ -88,6 +91,7 @@ $(document).ready(function () {
         $("#myModal").modal("show");
     });
 
+    //Function to allow strike-through of ingredients on click
     $(document).on("click", "li", function () {
         if ($(this).css("text-decoration") === "line-through solid rgb(33, 37, 41)") {
             $(this).css("text-decoration", "none");
@@ -97,7 +101,7 @@ $(document).ready(function () {
         }
     });
 
-
+    //PUNK api call from the recipeSearch function and puts results into the modal
     function beerSelection(firstWord) {
         var beerQueryURL = "https://api.punkapi.com/v2/beers/?food=" + firstWord;
         $.ajax({
@@ -144,16 +148,19 @@ $(document).ready(function () {
             })
     }
 
+    //Pops warning text below recipeSearch on invalid input
     function validateInput() {
         var text = "Please enter an ingredient";
         document.getElementById("valAlert").innerHTML = text
     }
 
+    //removes the warning text when you click back into the recipe search box
     $("#inputIngredients").on("click", function () {
         var text = "";
         document.getElementById("valAlert").innerHTML = text
     })
 
+    //Right side of webpage, on click functionality for beer type buttons
     $(".beerType").on("click", function () {
         var beerValue = $(this).text();
         console.log(beerValue);
@@ -161,6 +168,7 @@ $(document).ready(function () {
         $(".resultsCard").css("display", "block");
     });
 
+    
     function beerType(beerValue) {
         $("#results").empty();
         var beerTypeQuery = "https://api.punkapi.com/v2/beers/?beer_name=" + beerValue;
@@ -237,17 +245,17 @@ $(document).ready(function () {
 
     function recipeSearch(searchString) {
         var stringArray = searchString;
-        var queryURL = "https://api.edamam.com/search?q=" + stringArray[0] + "&app_id=84d920a9&app_key=d4d05b6e3b62980f25933ff5b6e370c5";
+        var i = 0;
+        var queryURL = "https://api.edamam.com/search?q=" + stringArray[i] + "&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
         ajaxCall();
         function ajaxCall() {
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
-                ;
                 var recipeArray = response.hits;
                 if (recipeArray.length === 0) {
-                    queryURL = "https://api.edamam.com/search?q=" + stringArray[1] + "&app_id=84d920a9&app_key=d4d05b6e3b62980f25933ff5b6e370c5";
+                    queryURL = "https://api.edamam.com/search?q=" + stringArray[2] + "&app_id=8a052bc1&app_key=c17b6fd5914c8c62342c0a50b7b283e2";
                     ajaxCall();
                 }
                 else {

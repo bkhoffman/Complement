@@ -7,7 +7,7 @@ body.modal-open .container-fluid{
 }
 
 body{
-  background-image: url("./images/food.png");
+  background-image: url("./images/restaurant_icons.png");
 }
 
 .container-fluid{
@@ -47,7 +47,8 @@ body{
 .recipeCard, .beerCard{
   width: 250px;
   margin: 5px;
-  text-align: center
+  text-align: center;
+  cursor: pointer;
 }
 
 .card-header {
@@ -74,11 +75,7 @@ body{
 
 .modalCard{
   min-height: 340px;
-}
-
-.recipeCard{
-  width: 200px;
-  cursor: pointer;
+  text-align: center;
 }
 
 li{
