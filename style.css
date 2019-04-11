@@ -20,7 +20,7 @@ body{
 
 .main-text {
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   width: 100%;
 }
 
@@ -116,3 +116,13 @@ li{
   color:#FF0000;  /* red */
 }
 
+@media only screen and (max-width: 700px) {
+
+  #slides {
+    display: none;
+  }
+
+  .main-text {
+    position: static;
+  }
+}
