@@ -19,8 +19,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script> <!--validation lib-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script> <!--validation lib-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <!--validation lib-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script>
+    <!--validation lib-->
     <title>Complement</title>
 </head>
 
@@ -45,13 +47,12 @@
                 </div>
             </div>
         </div>
-        <div class="main-text hidden-xs">
+        <div class="main-text">
             <div class="col-md-12 text-center">
                 <h1 class="display-4">Complement</h1>
                 <h4 id="tagline">Create Your Perfect Meal</h4>
             </div>
         </div>
-    </div>
 
 
         <button class="btn btn-primary hidden mx-auto mt-2 mb-1" id="swapDisplay" type="button" data-toggle="collapse"
@@ -64,14 +65,15 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Food</h5>
                         <p class="card-text">What's in your pantry?</p>
-                            <form id = "inGredients">
-                                <div class="form-group" id = "ingInput">
-                                    <label for="ingInput">Add your ingredients, main ingredient first:
-                                    <input type="text" name="ingInput" class="form-control" id="inputIngredients"  placeholder="Ex. chicken tomato pasta" >
-                                    </label>
-                                </div>
-                                <button id="recipeSearch" type="submit" class="btn btn-primary">Find Recipes</button>
-                            </form>
+                        <form id="inGredients">
+                            <div class="form-group" id="ingInput">
+                                <label for="ingInput">Add your ingredients, main ingredient first:
+                                    <input type="text" name="ingInput" class="form-control" id="inputIngredients"
+                                        placeholder="Ex. chicken tomato pasta">
+                                </label>
+                            </div>
+                            <button id="recipeSearch" type="submit" class="btn btn-primary">Find Recipes</button>
+                        </form>
                         <p id="valAlert"></p>
                     </div>
                 </div>
@@ -107,7 +109,6 @@
             </div>
         </div>
     </div>
-    </div>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -120,7 +121,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-12 col-lg-4">
                             <h3 class="modal-title">Recipe</h3>
                             <div id="recipeChoice">
                                 <div class="card modalCard">
@@ -131,11 +132,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-12 col-lg-4">
                             <h3 class="modal-title">Ingredients</h3>
                             <ul id="recipeIngredients" class="scroll"></ul>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-12 col-lg-4">
                             <h3 class="modal-title">Beer Types</h3>
                             <div id="beer-results"></div>
                         </div>
