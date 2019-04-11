@@ -19,28 +19,60 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script> <!--validation lib-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.js"></script> <!--validation lib-->
     <title>Complement</title>
 </head>
 
 <body>
     <div class="container-fluid">
-        <div class="jumbotron">
-            <h1 class="display-4">Complement</h1>
-            <h4 class="display-tag">Create Your Perfect Meal</h4>
+        <div id="carousel-header" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id="slides">
+                <div class="carousel-item active" data-interval="7000">
+                    <img src="./images/background_image_1.jpg" class="d-block w-100" alt="BG1">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_2.jpg" class="d-block w-100" alt="BG2">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_3.jpg" class="d-block w-100" alt="BG3">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_4.jpg" class="d-block w-100" alt="BG4">
+                </div>
+                <div class="carousel-item" data-interval="7000">
+                    <img src="./images/background_image_5.jpg" class="d-block w-100" alt="BG5">
+                </div>
+            </div>
         </div>
-        <div class="row">
+        <div class="main-text hidden-xs">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4">Complement</h1>
+                <h4>Create Your Perfect Meal</h4>
+            </div>
+        </div>
+    </div>
+
+
+        <button class="btn btn-primary hidden mx-auto mt-2 mb-1" id="swapDisplay" type="button" data-toggle="collapse"
+            data-target=".collapse" aria-expanded="true"
+            aria-controls="multiCollapseExample1 multiCollapseExample2">Ingredient and Beer Search</button>
+        <div class="row collapse show">
             <div class="col-lg-6">
                 <div class="card mainCard">
                     <img src="./images/food_main_image_3.png" class="card-img-top" alt="food image">
                     <div class="card-body">
                         <h5 class="card-title text-center">Food</h5>
                         <p class="card-text">What's in your pantry?</p>
-                        <p class="card-text">Add your ingredients, main ingredient first:</p>
-                        <input type="text" name="ingInput" onsubmit="return validateInput()" class="form-control"
-                            id="inputIngredients" placeholder="Ex. chicken tomato pasta">
+                            <form id = "inGredients">
+                                <div class="form-group" id = "ingInput">
+                                    <label for="ingInput">Add your ingredients, main ingredient first:
+                                    <input type="text" name="ingInput" class="form-control" id="inputIngredients"  placeholder="Ex. chicken tomato pasta" >
+                                    </label>
+                                </div>
+                                <button id="recipeSearch" type="submit" class="btn btn-primary">Find Recipes</button>
+                            </form>
                         <p id="valAlert"></p>
-                        <br>
-                        <button id="recipeSearch" class="btn btn-primary">Find Recipes</button>
                     </div>
                 </div>
             </div>
@@ -48,29 +80,24 @@
                 <div class="card mainCard">
                     <img src="./images/beer_image_small.png" class="card-img-top" alt="beer image">
                     <div class="card-body">
-                        <h5 class="card-title">Drink</h5>
+                        <h5 class="card-title text-center">Drink</h5>
                         <p class="card-text">What type of beer do you feel like drinking?</p>
-                        <div class="btn-group dropdown">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Beer Type
-                            </button>
-                            <div class="dropdown-menu" id="drop-beers" aria-labelledby="dropdownMenu2">
-                                    <button class="dropdown-item" type="button">Lager</button>
-                                    <button class="dropdown-item" type="button">Pale Ale</button>
-                                    <button class="dropdown-item" type="button">IPA</button>
-                                    <button class="dropdown-item" type="button">Brown Ale</button>
-                                    <button class="dropdown-item" type="button">Wheat</button>
-                                    <button class="dropdown-item" type="button">Porter</button>
-                                    <button class="dropdown-item" type="button">Stout</button>
-                                    <button class="dropdown-item" type="button">Sour</button>
-                                  </div>
+                        <div id="beerButtons" class="d-flex flex-wrap justify-content-between">
+                            <button class="btn btn-primary beerType" type="button">Lager</button>
+                            <button class="btn btn-primary beerType" type="button">Pale Ale</button>
+                            <button class="btn btn-primary beerType" type="button">IPA</button>
+                            <button class="btn btn-primary beerType" type="button">Brown Ale</button>
+                            <button class="btn btn-primary beerType" type="button">Wheat</button>
+                            <button class="btn btn-primary beerType" type="button">Belgian</button>
+                            <button class="btn btn-primary beerType" type="button">Porter</button>
+                            <button class="btn btn-primary beerType" type="button">Stout</button>
+                            <button class="btn btn-primary beerType" type="button">Sour</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row collapse">
             <div class="col-12">
                 <div class="card resultsCard">
                     <div class="card-body">
@@ -78,8 +105,8 @@
                     </div>
                 </div>
             </div>
-          </div>
         </div>
+    </div>
     </div>
 
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
@@ -117,5 +144,22 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="noResultModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">No Recipe Results</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>It looks like we weren't able to find any results for your search, please try again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="edamam.js"></script>
 </body>

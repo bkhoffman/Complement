@@ -6,47 +6,74 @@ body.modal-open .container-fluid{
   filter: blur(5px);  
 }
 
+body{
+  background-image: url("./images/restaurant_icons.png");
+}
+
 .container-fluid{
   padding: 0;
 }
 
-.jumbotron{
-  font-style: bold;
-  text-align: center;
-  margin-bottom: 5px;
+#slides {
+  margin-bottom: 20px;
+}
+
+.main-text {
+  position: absolute;
+  top: 40px;
+  width: 100%;
 }
 
 .display-4{
-  font: 5rem 'Berkshire Swash', Helvetica, sans-serif;
+  font: 6rem 'Berkshire Swash', Helvetica, sans-serif;
   color: #2b2b2b;
   text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
 }
 
-#drink-card{
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
 .mainCard{
-  min-height: 560px;
+  min-height: 625px;
   margin: 10px 10px;
+  background-color: rgba(255,255,255,0.5);
 }
+
+.row { margin: 0; padding: 0 }
 
 .resultsCard{
   margin: 10px;
-  display: none;
+  background-color: rgba(255,255,255,0.5);
 }
 
-.recipeCard{
-  min-width: 250px;
+.hidden{
+  display: none
+}
+
+.btn-primary {
+  background-color: #99CC99;
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-primary:hover {
+  background-color: #99CC33;
+  color: white;
+  border: 1px solid black;
+}
+
+.recipeCard, .beerCard{
+  width: 250px;
   margin: 5px;
+  text-align: center;
+  cursor: pointer;
 }
 
-.beer-image {
+.card-header {
+  min-height: 75px;
+  text-align: center;
+  background-color: #99CC99;
+}
+
+.beer-image,
+#beer-image {
   height: 200px;
 }
 
@@ -64,11 +91,7 @@ h3 {
 
 .modalCard{
   min-height: 340px;
-}
-
-.recipeCard{
-  width: 200px;
-  cursor: pointer;
+  text-align: center;
 }
 
 li{
@@ -78,4 +101,13 @@ li{
 .scroll {
   max-height: 340px;
   overflow-y: auto;
+}
+
+.beerType{
+  margin: 5px;
+  min-width: 200px;
+}
+
+.my-error-class {
+  color:#FF0000;  /* red */
 }
