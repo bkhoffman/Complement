@@ -53,16 +53,21 @@ body{
   display: none
 }
 
-.btn-primary {
+.btn {
   background-color: #99CC99;
   color: black;
   border: 1px solid black;
 }
 
-.btn-primary:hover {
+.btn:hover {
   background-color: #99CC33;
   color: white;
   border: 1px solid black;
+}
+
+.btn:focus, .btn:active {
+  outline: none;
+  box-shadow:none;
 }
 
 .recipeCard, .beerCard{
@@ -134,5 +139,12 @@ li{
 
   .mainCard{
     min-height: 5px;
+  }
+
+  .display-4{
+    font-size: 400%;
+  }
+  #tagline {
+    font-size: 125%;
   }
 }
