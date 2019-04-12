@@ -113,7 +113,7 @@ $(document).ready(function () {
                     var cardHeader = $("<div>").addClass("card-header text-center");
                     cardHeader.text("No Beer Pairing Found");
                     var cardBody = $("<div>").addClass("card-body text-center");
-                    var img = `<img src="/images/nobeer.jpg" class="img-fluid mx-auto d-block beer-image">`;
+                    var img = `<img src="./images/nobeer.jpg" class="img-fluid mx-auto d-block beer-image">`;
                     cardBody.append(img);
                     card.append(cardHeader, cardBody);
                     $("#beer-results").append(card);
