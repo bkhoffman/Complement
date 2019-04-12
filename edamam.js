@@ -3,23 +3,23 @@ $(document).ready(function () {
 
     //jquery validation library for the recipeSearch button
     $("#inGredients").validate({
-        submitHandler: function(form) {  
+        submitHandler: function (form) {
             var string = $("#inputIngredients").val().trim();
             var searchString = string.replace(" ", ",");
             edamamCall(searchString);
             $("#inputIngredients").val("");
-        },	
+        },
         rules: {
-          ingInput: {
-            pattern: /^[A-Za-z," "]+$/,
-            required: true
-          }
+            ingInput: {
+                pattern: /^[A-Za-z," "]+$/,
+                required: true
+            }
         },
         messages: {
-          ingInput: "Please input your ingredients using letters and spaces only"
+            ingInput: "Please input your ingredients using letters and spaces only"
         },
         errorClass: "my-error-class"
-      });
+    });
 
     //edamam API call for recipeSearch and fills in results div
     function edamamCall(searchString) {
@@ -92,12 +92,8 @@ $(document).ready(function () {
 
     //Function to allow strike-through of ingredients on click
     $(document).on("click", "li", function () {
-        if ($(this).css("text-decoration") === "line-through solid rgb(33, 37, 41)") {
-            $(this).css("text-decoration", "none");
-        }
-        else {
-            $(this).css("text-decoration", "line-through");
-        }
+        console.log("clicked");
+        $(this).toggleClass("strike");
     });
 
     //PUNK api call from the recipeSearch function and puts results into the modal
@@ -154,7 +150,7 @@ $(document).ready(function () {
         $(".resultsCard").css("display", "block");
     });
 
-    
+
     function beerType(beerValue) {
         $("#results").empty();
         var beerTypeQuery = "https://api.punkapi.com/v2/beers/?beer_name=" + beerValue;
