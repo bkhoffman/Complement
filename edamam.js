@@ -4,7 +4,6 @@ $(document).ready(function () {
     //jquery validation library for the recipeSearch button
     $("#inGredients").validate({
         submitHandler: function(form) {  
-            console.log(form) 
             var string = $("#inputIngredients").val().trim();
             var searchString = string.replace(" ", ",");
             edamamCall(searchString);
@@ -17,7 +16,7 @@ $(document).ready(function () {
           }
         },
         messages: {
-          ingInput: "Please input your ingredients using letters only"
+          ingInput: "Please input your ingredients using letters and spaces only"
         },
         errorClass: "my-error-class"
       });
@@ -148,22 +147,9 @@ $(document).ready(function () {
             })
     }
 
-    // //Pops warning text below recipeSearch on invalid input
-    // function validateInput() {
-    //     var text = "Please enter an ingredient";
-    //     document.getElementById("valAlert").innerHTML = text
-    // }
-
-    // //removes the warning text when you click back into the recipe search box
-    // $("#inputIngredients").on("click", function () {
-    //     var text = "";
-    //     document.getElementById("valAlert").innerHTML = text
-    // })
-
     //Right side of webpage, on click functionality for beer type buttons
     $(".beerType").on("click", function () {
         var beerValue = $(this).text();
-        console.log(beerValue);
         beerType(beerValue);
         $(".resultsCard").css("display", "block");
     });
@@ -182,9 +168,7 @@ $(document).ready(function () {
                 $('.collapse').collapse("toggle");
                 $("#swapDisplay").text("Ingredient and Beer Search");
                 for (var i = 0; i < 5; i++) {
-                    console.log(response);
                     var food = JSON.stringify(response[i].food_pairing);
-                    console.log(food);
                     var image;
                     if (response[i].image_url === null) {
                         image = "./images/noBeerImage.jpg"
@@ -229,13 +213,6 @@ $(document).ready(function () {
         $("#beer-results").empty();
 
         var string = JSON.parse($(this).attr("data-food"));
-        console.log(string);
-        // if (string.includes(" ")) {
-        //     var firstWord = string.substring(0, string.indexOf(" " || "-"));
-        // }
-        // else {
-        //     var firstWord = string;
-        // }
         recipeSearch(string);
         var beerCard = $(this).clone();
         beerCard.removeClass("beerCard");
