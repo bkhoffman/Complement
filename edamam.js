@@ -94,9 +94,11 @@ $(document).ready(function () {
     $(document).on("click", "li", function () {
         if ($(this).css("text-decoration") === "line-through solid rgb(33, 37, 41)") {
             $(this).css("text-decoration", "none");
+            $(this).css("-webkit-text-decoration", "none");
         }
         else {
             $(this).css("text-decoration", "line-through");
+            $(this).css("-webkit-text-decoration", "line-through");
         }
     });
 
