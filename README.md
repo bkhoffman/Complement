@@ -1,6 +1,12 @@
 # Complement
 *A food and beer pairing app*
 
+## Link to deployed project:
+https://bkhoffman.github.io/Complement/
+
+## Known issue:
+The Edamam recipe search API is limited to 5 queries/minute because we are using the free-level of the API so if too many queries are attempted then any further queries will fail because of a 401 restricted error. If we continue to develop this app and want to market it then we would pay for a higher level of the API to remove this restrction.
+
 ## Purpose:
 We wanted to build an app that allowed you to take the ingredients you had on hand and get a list of possible recipes you could make as well as find out what beers would pair with your meal choice. We also wanted this to work in the opposite direction where you chose a type of beer, got a list of beers, and then found a food that would pair well with that beer. 
 
